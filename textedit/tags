@@ -1,0 +1,136 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AR	Makefile	/^AR            = ar cqs$/;"	m
+CC	Makefile	/^CC            = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS        = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CHK_DIR_EXISTS	Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
+COMPRESS	Makefile	/^COMPRESS      = gzip -9f$/;"	m
+COPY	Makefile	/^COPY          = cp -f$/;"	m
+COPY_DIR	Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
+COPY_FILE	Makefile	/^COPY_FILE     = $(COPY)$/;"	m
+CXX	Makefile	/^CXX           = g++$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+DEFINES	Makefile	/^DEFINES       = -DQT_WEBKIT -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+DEL_DIR	Makefile	/^DEL_DIR       = rmdir$/;"	m
+DEL_FILE	Makefile	/^DEL_FILE      = rm -f$/;"	m
+DESTDIR	Makefile	/^DESTDIR       = $/;"	m
+DIST	Makefile	/^DIST          = \/usr\/share\/qt4\/mkspecs\/common\/unix.conf \\$/;"	m
+INCPATH	Makefile	/^INCPATH       = -I\/usr\/share\/qt4\/mkspecs\/linux-g++ -I. -I\/usr\/include\/qt4\/QtCore -I\/usr\/include\/qt4\/QtGui -I\/usr\/include\/qt4 -I.$/;"	m
+INSTALL_DIR	Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
+INSTALL_FILE	Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
+INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
+LFLAGS	Makefile	/^LFLAGS        = $/;"	m
+LIBS	Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib\/i386-linux-gnu -lQtGui -lQtCore -lpthread $/;"	m
+LINK	Makefile	/^LINK          = g++$/;"	m
+MKDIR	Makefile	/^MKDIR         = mkdir -p$/;"	m
+MOVE	Makefile	/^MOVE          = mv -f$/;"	m
+OBJECTS	Makefile	/^OBJECTS       = textedit.o \\$/;"	m
+OBJECTS_DIR	Makefile	/^OBJECTS_DIR   = .\/$/;"	m
+QMAKE	Makefile	/^QMAKE         = \/usr\/bin\/qmake-qt4$/;"	m
+QMAKE_TARGET	Makefile	/^QMAKE_TARGET  = textedit$/;"	m
+RANLIB	Makefile	/^RANLIB        = $/;"	m
+SED	Makefile	/^SED           = sed$/;"	m
+SOURCES	Makefile	/^SOURCES       = textedit.cpp \\$/;"	m
+STRIP	Makefile	/^STRIP         = strip$/;"	m
+SYMLINK	Makefile	/^SYMLINK       = ln -f -s$/;"	m
+TAR	Makefile	/^TAR           = tar -cf$/;"	m
+TARGET	Makefile	/^TARGET        = textedit$/;"	m
+TEXTEDIT_H	textedit.h	43;"	d
+TextEdit	textedit.cpp	/^TextEdit::TextEdit(QWidget *parent)$/;"	f	class:TextEdit
+TextEdit	textedit.h	/^class TextEdit : public QMainWindow$/;"	c
+about	textedit.cpp	/^void TextEdit::about()$/;"	f	class:TextEdit
+actionAlignCenter	textedit.h	/^        *actionAlignCenter,$/;"	m	class:TextEdit
+actionAlignJustify	textedit.h	/^        *actionAlignJustify,$/;"	m	class:TextEdit
+actionAlignLeft	textedit.h	/^        *actionAlignLeft,$/;"	m	class:TextEdit
+actionAlignRight	textedit.h	/^        *actionAlignRight,$/;"	m	class:TextEdit
+actionCopy	textedit.h	/^        *actionCopy,$/;"	m	class:TextEdit
+actionCut	textedit.h	/^        *actionCut,$/;"	m	class:TextEdit
+actionPaste	textedit.h	/^        *actionPaste;$/;"	m	class:TextEdit
+actionRedo	textedit.h	/^        *actionRedo,$/;"	m	class:TextEdit
+actionSave	textedit.h	/^    QAction *actionSave,$/;"	m	class:TextEdit
+actionTextBold	textedit.h	/^        *actionTextBold,$/;"	m	class:TextEdit
+actionTextColor	textedit.h	/^        *actionTextColor,$/;"	m	class:TextEdit
+actionTextItalic	textedit.h	/^        *actionTextItalic,$/;"	m	class:TextEdit
+actionTextUnderline	textedit.h	/^        *actionTextUnderline,$/;"	m	class:TextEdit
+actionUndo	textedit.h	/^        *actionUndo,$/;"	m	class:TextEdit
+alignmentChanged	textedit.cpp	/^void TextEdit::alignmentChanged(Qt::Alignment a)$/;"	f	class:TextEdit
+clipboardDataChanged	textedit.cpp	/^void TextEdit::clipboardDataChanged()$/;"	f	class:TextEdit
+closeEvent	textedit.cpp	/^void TextEdit::closeEvent(QCloseEvent *e)$/;"	f	class:TextEdit
+colorChanged	textedit.cpp	/^void TextEdit::colorChanged(const QColor &c)$/;"	f	class:TextEdit
+comboFont	textedit.h	/^    QFontComboBox *comboFont;$/;"	m	class:TextEdit
+comboSize	textedit.h	/^    QComboBox *comboSize;$/;"	m	class:TextEdit
+comboStyle	textedit.h	/^    QComboBox *comboStyle;$/;"	m	class:TextEdit
+currentCharFormatChanged	textedit.cpp	/^void TextEdit::currentCharFormatChanged(const QTextCharFormat &format)$/;"	f	class:TextEdit
+cursorPositionChanged	textedit.cpp	/^void TextEdit::cursorPositionChanged()$/;"	f	class:TextEdit
+fileName	textedit.h	/^    QString fileName;$/;"	m	class:TextEdit
+fileNew	textedit.cpp	/^void TextEdit::fileNew()$/;"	f	class:TextEdit
+fileOpen	textedit.cpp	/^void TextEdit::fileOpen()$/;"	f	class:TextEdit
+filePrint	textedit.cpp	/^void TextEdit::filePrint()$/;"	f	class:TextEdit
+filePrintPdf	textedit.cpp	/^void TextEdit::filePrintPdf()$/;"	f	class:TextEdit
+filePrintPreview	textedit.cpp	/^void TextEdit::filePrintPreview()$/;"	f	class:TextEdit
+fileSave	textedit.cpp	/^bool TextEdit::fileSave()$/;"	f	class:TextEdit
+fileSaveAs	textedit.cpp	/^bool TextEdit::fileSaveAs()$/;"	f	class:TextEdit
+fontChanged	textedit.cpp	/^void TextEdit::fontChanged(const QFont &f)$/;"	f	class:TextEdit
+getStaticMetaObject	debug/moc_textedit.cpp	/^const QMetaObject &TextEdit::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:TextEdit
+getStaticMetaObject	moc_textedit.cpp	/^const QMetaObject &TextEdit::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:TextEdit
+getStaticMetaObject	tmp/moc/release_shared/moc_textedit.cpp	/^const QMetaObject &TextEdit::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:TextEdit
+load	textedit.cpp	/^bool TextEdit::load(const QString &f)$/;"	f	class:TextEdit
+main	main.cpp	/^int main( int argc, char ** argv )$/;"	f
+maybeSave	textedit.cpp	/^bool TextEdit::maybeSave()$/;"	f	class:TextEdit
+mergeFormatOnWordOrSelection	textedit.cpp	/^void TextEdit::mergeFormatOnWordOrSelection(const QTextCharFormat &format)$/;"	f	class:TextEdit
+metaObject	debug/moc_textedit.cpp	/^const QMetaObject *TextEdit::metaObject() const$/;"	f	class:TextEdit
+metaObject	moc_textedit.cpp	/^const QMetaObject *TextEdit::metaObject() const$/;"	f	class:TextEdit
+metaObject	tmp/moc/release_shared/moc_textedit.cpp	/^const QMetaObject *TextEdit::metaObject() const$/;"	f	class:TextEdit
+printPreview	textedit.cpp	/^void TextEdit::printPreview(QPrinter *printer)$/;"	f	class:TextEdit
+qCleanupResources_textedit	debug/qrc_textedit.cpp	/^int QT_MANGLE_NAMESPACE(qCleanupResources_textedit)()$/;"	f
+qCleanupResources_textedit	qrc_textedit.cpp	/^int QT_MANGLE_NAMESPACE(qCleanupResources_textedit)()$/;"	f
+qCleanupResources_textedit	tmp/rcc/release_shared/qrc_textedit.cpp	/^int QT_MANGLE_NAMESPACE(qCleanupResources_textedit)()$/;"	f
+qInitResources_textedit	debug/qrc_textedit.cpp	/^int QT_MANGLE_NAMESPACE(qInitResources_textedit)()$/;"	f
+qInitResources_textedit	qrc_textedit.cpp	/^int QT_MANGLE_NAMESPACE(qInitResources_textedit)()$/;"	f
+qInitResources_textedit	tmp/rcc/release_shared/qrc_textedit.cpp	/^int QT_MANGLE_NAMESPACE(qInitResources_textedit)()$/;"	f
+qt_meta_data_TextEdit	debug/moc_textedit.cpp	/^static const uint qt_meta_data_TextEdit[] = {$/;"	v	file:
+qt_meta_data_TextEdit	moc_textedit.cpp	/^static const uint qt_meta_data_TextEdit[] = {$/;"	v	file:
+qt_meta_data_TextEdit	tmp/moc/release_shared/moc_textedit.cpp	/^static const uint qt_meta_data_TextEdit[] = {$/;"	v	file:
+qt_meta_stringdata_TextEdit	debug/moc_textedit.cpp	/^static const char qt_meta_stringdata_TextEdit[] = {$/;"	v	file:
+qt_meta_stringdata_TextEdit	moc_textedit.cpp	/^static const char qt_meta_stringdata_TextEdit[] = {$/;"	v	file:
+qt_meta_stringdata_TextEdit	tmp/moc/release_shared/moc_textedit.cpp	/^static const char qt_meta_stringdata_TextEdit[] = {$/;"	v	file:
+qt_metacall	debug/moc_textedit.cpp	/^int TextEdit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:TextEdit
+qt_metacall	moc_textedit.cpp	/^int TextEdit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:TextEdit
+qt_metacall	tmp/moc/release_shared/moc_textedit.cpp	/^int TextEdit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:TextEdit
+qt_metacast	debug/moc_textedit.cpp	/^void *TextEdit::qt_metacast(const char *_clname)$/;"	f	class:TextEdit
+qt_metacast	moc_textedit.cpp	/^void *TextEdit::qt_metacast(const char *_clname)$/;"	f	class:TextEdit
+qt_metacast	tmp/moc/release_shared/moc_textedit.cpp	/^void *TextEdit::qt_metacast(const char *_clname)$/;"	f	class:TextEdit
+qt_resource_data	debug/qrc_textedit.cpp	/^static const unsigned char qt_resource_data[] = {$/;"	v	file:
+qt_resource_data	qrc_textedit.cpp	/^static const unsigned char qt_resource_data[] = {$/;"	v	file:
+qt_resource_data	tmp/rcc/release_shared/qrc_textedit.cpp	/^static const unsigned char qt_resource_data[] = {$/;"	v	file:
+qt_resource_name	debug/qrc_textedit.cpp	/^static const unsigned char qt_resource_name[] = {$/;"	v	file:
+qt_resource_name	qrc_textedit.cpp	/^static const unsigned char qt_resource_name[] = {$/;"	v	file:
+qt_resource_name	tmp/rcc/release_shared/qrc_textedit.cpp	/^static const unsigned char qt_resource_name[] = {$/;"	v	file:
+qt_resource_struct	debug/qrc_textedit.cpp	/^static const unsigned char qt_resource_struct[] = {$/;"	v	file:
+qt_resource_struct	qrc_textedit.cpp	/^static const unsigned char qt_resource_struct[] = {$/;"	v	file:
+qt_resource_struct	tmp/rcc/release_shared/qrc_textedit.cpp	/^static const unsigned char qt_resource_struct[] = {$/;"	v	file:
+qt_static_metacall	moc_textedit.cpp	/^void TextEdit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:TextEdit
+rsrcPath	textedit.cpp	/^const QString rsrcPath = ":\/images\/mac";$/;"	v
+rsrcPath	textedit.cpp	/^const QString rsrcPath = ":\/images\/win";$/;"	v
+setCurrentFileName	textedit.cpp	/^void TextEdit::setCurrentFileName(const QString &fileName)$/;"	f	class:TextEdit
+setupEditActions	textedit.cpp	/^void TextEdit::setupEditActions()$/;"	f	class:TextEdit
+setupFileActions	textedit.cpp	/^void TextEdit::setupFileActions()$/;"	f	class:TextEdit
+setupTextActions	textedit.cpp	/^void TextEdit::setupTextActions()$/;"	f	class:TextEdit
+staticMetaObject	debug/moc_textedit.cpp	/^const QMetaObject TextEdit::staticMetaObject = {$/;"	m	class:TextEdit	file:
+staticMetaObject	moc_textedit.cpp	/^const QMetaObject TextEdit::staticMetaObject = {$/;"	m	class:TextEdit	file:
+staticMetaObject	tmp/moc/release_shared/moc_textedit.cpp	/^const QMetaObject TextEdit::staticMetaObject = {$/;"	m	class:TextEdit	file:
+staticMetaObjectExtraData	moc_textedit.cpp	/^const QMetaObjectExtraData TextEdit::staticMetaObjectExtraData = {$/;"	m	class:TextEdit	file:
+tb	textedit.h	/^    QToolBar *tb;$/;"	m	class:TextEdit
+textAlign	textedit.cpp	/^void TextEdit::textAlign(QAction *a)$/;"	f	class:TextEdit
+textBold	textedit.cpp	/^void TextEdit::textBold()$/;"	f	class:TextEdit
+textColor	textedit.cpp	/^void TextEdit::textColor()$/;"	f	class:TextEdit
+textEdit	textedit.h	/^    QTextEdit *textEdit;$/;"	m	class:TextEdit
+textFamily	textedit.cpp	/^void TextEdit::textFamily(const QString &f)$/;"	f	class:TextEdit
+textItalic	textedit.cpp	/^void TextEdit::textItalic()$/;"	f	class:TextEdit
+textSize	textedit.cpp	/^void TextEdit::textSize(const QString &p)$/;"	f	class:TextEdit
+textStyle	textedit.cpp	/^void TextEdit::textStyle(int styleIndex)$/;"	f	class:TextEdit
+textUnderline	textedit.cpp	/^void TextEdit::textUnderline()$/;"	f	class:TextEdit

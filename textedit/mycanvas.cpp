@@ -55,6 +55,10 @@ void MyCanvas::paintLine(QPoint l,QPoint r){
   pp.drawLine(l,r);   //由起始坐标和终止坐标绘制直线
   update();   //进行更新界面显示，可引起窗口重绘事件，重绘窗口
 }
+void MyCanvas::paintLine(QLine &line){
+  QPoint l=line.p1(),r=line.p2();
+  MyCanvas::paintLine(l,r);
+}
 void MyCanvas::paint(QImage &theImage)
 {
   paintLine(lastPoint,endPoint);

@@ -46,6 +46,7 @@
 #include <QMap>
 #include <QPointer>
 #include <QPainter>
+#include <QQueue>
 #include <QTextDocument>
 #include <QTextEdit>
 #include "blank.h"
@@ -106,6 +107,7 @@ private slots:
     //emit mouseMoveEvent(e);
     //emit cursorPositionChanged();
   }
+  void loadCanvas();
   void pageChanged(QString);
   void iniFontSize();
   void dividePages();
@@ -164,7 +166,20 @@ private:
   QString fileName;
   QTextEdit *textEdit;
   QVector<QTextDocument*> docs;//store the pages of this doc
-  QVector<QLine> lines;//store the marks of this doc
+  int curPn;//current page number (0 to N-1)
+  class MyLess
+  {
+    public:
+      inline bool operator()(const QLine &t1, const QLine &t2) const  
+      {  
+        if(t1.p1().y()!=t2.p1().y()) 
+          return t1.p1().y()<t2.p1().y();
+        if(t1.p1().x()!=t2.p2().x())
+         return t1.p1().x()<t2.p1().x();
+       return t1.p2().x()<t2.p2().x(); 
+      }  
+  };
+  QVector<QVector<QLine> > lines;//store the marks of this doc
   //Blank *blank;
   //QPainter *paint;
   MyCanvas *image;

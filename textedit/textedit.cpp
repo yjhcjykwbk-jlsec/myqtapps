@@ -33,11 +33,24 @@ const QString rsrcPath = ":/images/mac";
 #else
 const QString rsrcPath = ":/images/win";
 #endif
-
+//init the canvas at which page
+//pn=0 to N-1
+void TextEdit::loadCanvas(){
+   image->reload();
+   cout<<"line["<<curPn<<"]:"<<lines[curPn].size();
+  for(int i=0;i<lines[curPn].size();i++){
+    image->paintLine(lines[curPn][i]);
+  }
+}
+//jump to page s
+//and init the canvas at page s
+//s=0 to N-1
 void TextEdit::pageChanged(QString s){
     if(s.toInt()>docs.size()||s.toInt()<1) return;
+    curPn=s.toInt()-1;
     textEdit->setDocument(docs[s.toInt()-1]);
-    iniFontSize();
+    loadCanvas();
+    //iniFontSize();
 }
 //init font size
 void TextEdit::iniFontSize(){
@@ -69,6 +82,7 @@ void TextEdit::iniFontSize(){
 //divide to pages
 //note: everytime the divide result is the same
 void TextEdit::dividePages(){
+     iniFontSize();
     //  cursor.select(QTextCursor::Document);
     //  cursor.movePosition(QTextCursor::NoMove,QTextCursor::KeepAnchor,100000);//textEdit->document().length());
     //cursor.movePosition(doc->end());
@@ -112,8 +126,11 @@ void TextEdit::dividePages(){
     if(str!=""||docs.size()<=0) docs.append(new QTextDocument(str));
     //show the first page at first
     textEdit->setDocument(docs[0]);
+    curPn=0;
     //change the font size
     iniFontSize();
+    //init the lines , which is used by our canvas
+    lines.resize(docs.size());
 }
 TextEdit::TextEdit(QWidget *parent)
     : QMainWindow(parent)
@@ -122,7 +139,6 @@ TextEdit::TextEdit(QWidget *parent)
     setupFileActions();
     setupEditActions();
     setupTextActions();
-
     {
         //    QMenu *helpMenu = new QMenu(tr("Help"), this);
         //    menuBar()->addMenu(helpMenu);
@@ -848,6 +864,8 @@ void TextEdit::cursorPositionChanged()
 
     QPoint linePoint(x0,blockOffset.y()+lineOffset.y());
     QPoint lineEndPoint=QPoint(x1,linePoint.y());
+    lines[curPn].push_back(QLine(linePoint,lineEndPoint));
+    cout<<"curpositionchanged:line["<<curPn<<"]:"<<lines[curPn].size();
     image->paintLine(linePoint,lineEndPoint);
 
     //  int lineStart=blockStart,lineEnd;

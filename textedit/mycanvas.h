@@ -14,6 +14,12 @@ class MyCanvas : public QWidget
 public:
   MyCanvas(int width,int height,QWidget *parent=0);
   void paintLine(QPoint l,QPoint r);
+  void paintLine(QLine&);
+  void reload(){
+    image.fill(0x00000000);
+    update();
+  }
+
 signals:
   void mouseMoveSig(QMouseEvent *e);
   void mousePressSig(QMouseEvent *e);

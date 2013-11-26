@@ -60,10 +60,14 @@ QT_FORWARD_DECLARE_CLASS(QTextCharFormat)
 QT_FORWARD_DECLARE_CLASS(QMenu)
 #define cout qDebug()
 #define MIN(a,b) a<b?a:b
-#define LINEHEIGHT 18
-#define LINECNT    29
-#define PAGEWIDTH  590
-//#define PAGEHEIGHT 825
+//#define LINEHEIGHT 17
+//#define LINECNT    33
+//#define PAGEWIDTH  585
+//1487x2105
+#define FONTSIZE 7
+#define PAGEHEIGHT 297*4
+#define A4WIDTH 210*4
+#define A4HEIGHT 297*4
 
 class TextEdit : public QMainWindow
 {
@@ -177,7 +181,7 @@ private:
         if(t1.p1().x()!=t2.p2().x())
          return t1.p1().x()<t2.p1().x();
        return t1.p2().x()<t2.p2().x(); 
-      }  
+      }
   };
   QVector<QVector<QLine> > lines;//store the marks of this doc
   //Blank *blank;

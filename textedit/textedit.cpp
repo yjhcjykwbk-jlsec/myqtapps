@@ -33,6 +33,8 @@ const QString rsrcPath = ":/images/mac";
 #else
 const QString rsrcPath = ":/images/win";
 #endif
+
+
 //init the canvas at which page
 //pn=0 to N-1
 void TextEdit::loadCanvas(){
@@ -50,87 +52,65 @@ void TextEdit::pageChanged(QString s){
     curPn=s.toInt()-1;
     textEdit->setDocument(docs[s.toInt()-1]);
     loadCanvas();
-    //iniFontSize();
+    iniFontSize();
 }
 //init font size
 void TextEdit::iniFontSize(){
-    //the document contains 50 lines
     cout<<"#textedit::inifontsize";
-    QString s="12";
-    qreal pointSize = s.toFloat();
+    qreal pointSize = FONTSIZE;
     QTextCharFormat fmt;
     fmt.setFontPointSize(pointSize);
-    //QColor col = Qt::red;
-    //fmt.setForeground(col);
-    ///textEdit->setCurrentCharFormat(fmt);
 
-    //cursor is the main widget which handle document editing
     QTextCursor cursor = textEdit->textCursor();
-    //cursor.setPosition(120,QTextCursor::MoveAnchor);
-    //cursor.movePosition(QTextCursor::NoMove,QTextCursor::KeepAnchor,100000);//textEdit->document().length());
-    ////mergeFormatOnWordOrSelection(fmt);
-
-    //cursor has four selection type: the last one select the entire document
     cursor.select(QTextCursor::Document);
     cursor.mergeCharFormat(fmt);
-    //  QTextBlock block=cursor.block();
-    //  cout<<"TextEdit.initFontSize:the block start and length:";
-    //  cout<<block.position()<<","<<block.length();
-    //  cout<<"TextEdit.initFontSize:the block text:"<<block.text();
-    //cursor.setPosition(0);
 }
 //divide to pages
 //note: everytime the divide result is the same
 void TextEdit::dividePages(){
-     iniFontSize();
     //  cursor.select(QTextCursor::Document);
     //  cursor.movePosition(QTextCursor::NoMove,QTextCursor::KeepAnchor,100000);//textEdit->document().length());
     //cursor.movePosition(doc->end());
+    iniFontSize();
     QTextDocument* doc=textEdit->document();
     QTextBlock block=doc->begin();
     QString str="";
-    int lineNum=0;
-    int height=0;
-    int pageLn=0;
+    int pageHeight=4;
     while(true){
         cout<<"";
        // cout<<"block "<<block.blockNumber()<<"\tposx:"<<block.layout()->position().x()<<"\tposy:"<<block.layout()->position().y();
         cout<<block.text();
-        int blockLength=block.text().length();
         QTextLayout* layout=block.layout();
-        int curLine=0;
-        int pos=0;
         int i=0;
-        for(;i<=blockLength;i++){
-            QTextLine layoutLine=layout->lineForTextPosition(i);
-            int lineNumber= layoutLine.lineNumber();//the linenum of this block, 0 if block null
-            if(i==blockLength||lineNumber!=curLine){//new line if the linenum changed or block end
-                curLine++;
-                lineNum++;
-                //cout<<"line added:"<<lineNum<<":"<<curLine<<lineNumber;
-                str.append(block.text().mid(pos,i-pos));
-                pos=i;
-                if(lineNum>=LINECNT){ //new page
+       //for(;i<=blockLength;i++){
+        for(;i<layout->lineCount();i++){
+            //QTextLine layoutLine=layout->lineForTextPosition(i);
+            QTextLine layoutLine=layout->lineAt(i);
+            int lineTextStart=layoutLine.textStart();
+            int lineTextLength=layoutLine.textLength();
+            int lineHeight=layoutLine.height();
+                if(pageHeight+lineHeight>PAGEHEIGHT-4){ //new page
                     docs.append(new QTextDocument(str));
-                    str="";
-                    lineNum=0;
+                    str=block.text().mid(lineTextStart,lineTextLength);
+                    pageHeight=lineHeight+4;
                 }
-                else  {
-                    if(i==blockLength) str.append("\n");
+                else{
+                    str.append(block.text().mid(lineTextStart,lineTextLength));
+                    cout<<layoutLine.lineNumber()<<","<<layoutLine.rect()<<","<<layoutLine.position()
+                            <<","<<layoutLine.textStart()<<","<<layoutLine.textLength()<<":"<<block.text().mid(lineTextStart,lineTextLength);
+                pageHeight+=lineHeight;
                 }
+                if(i==layout->lineCount()-1) str+="\n";
             }
-        }
+
         block=block.next();
         if(!block.isValid()) break;
     }
     if(str!=""||docs.size()<=0) docs.append(new QTextDocument(str));
-    //show the first page at first
-    textEdit->setDocument(docs[0]);
-    curPn=0;
-    //change the font size
-    iniFontSize();
     //init the lines , which is used by our canvas
     lines.resize(docs.size());
+    //show the first page at first
+    pageChanged("1");
 }
 TextEdit::TextEdit(QWidget *parent)
     : QMainWindow(parent)
@@ -160,28 +140,28 @@ TextEdit::TextEdit(QWidget *parent)
 
 
     //create a transparent canvas and put it on the top of textEdit
-    image =new MyCanvas(900,605,this);
-    textEdit->setFixedSize(QSize(800,605));
+    image =new MyCanvas(A4WIDTH,A4HEIGHT,this);
+    textEdit->setFixedSize(QSize(A4WIDTH,A4HEIGHT));
     textEdit->setBackgroundRole(QPalette::Light);   //scrollAreaıɫΪDark
-    image->setFixedSize(QSize(800,605));
+    image->setFixedSize(QSize(A4WIDTH,A4HEIGHT));
     image->setStyleSheet(QString::fromUtf8("border:1px solid #000000;"));
 
     QScrollArea* scrollArea = new QScrollArea;
-    scrollArea->setFixedSize(QSize(1800,700));
+    scrollArea->setFixedSize(QSize(A4WIDTH+100,A4HEIGHT+10));
     //scrollArea->setWidget(image);     //ӵscrollArea
     scrollArea->setBackgroundRole(QPalette::Light);   //scrollAreaıɫΪDark
     //scrollArea->setBackgroundColor(QColor::white);
 
-    //    QStackedLayout *stackedLayout = new QStackedLayout;
-    //    stackedLayout->addWidget(image);
-    //    stackedLayout->addWidget(textEdit);
-    //    stackedLayout->setStackingMode(QStackedLayout::StackAll);
+        QStackedLayout *stackedLayout = new QStackedLayout;
+        stackedLayout->addWidget(image);
+        stackedLayout->addWidget(textEdit);
+        stackedLayout->setStackingMode(QStackedLayout::StackAll);
 
-    QHBoxLayout* hLayout=new QHBoxLayout();
-    hLayout->addWidget(textEdit);
-    hLayout->addWidget(image);
-    //  scrollArea->setLayout(stackedLayout);
-    scrollArea->setLayout(hLayout);
+//    QHBoxLayout* hLayout=new QHBoxLayout();
+//    hLayout->addWidget(textEdit);
+//    hLayout->addWidget(image);
+    scrollArea->setLayout(stackedLayout);
+//    scrollArea->setLayout(hLayout);
     //scrollArea->setGeometry(QRect(50,50,800,800));
 
 
@@ -703,7 +683,8 @@ void TextEdit::textSize(const QString &p)
     if (p.toFloat() > 0) {
         cout<<"textedit.textsize:"<<p;
         QTextCharFormat fmt;
-        fmt.setFontPointSize(pointSize);
+        //fmt.setFontPointSize(pointSize);
+        fmt.setFontPointSize(FONTSIZE);
         mergeFormatOnWordOrSelection(fmt);
     }
 }

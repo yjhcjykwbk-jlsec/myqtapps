@@ -39,10 +39,5 @@
         <file>images/win/textunder.png</file>
         <file>images/win/zoomin.png</file>
         <file>images/win/zoomout.png</file>
-        <file>data/test.txt</file>
-        <file>data/Makefile.txt</file>
-        <file>data/institute.txt</file>
-        <file>data/example.html</file>
-        <file>data/english.txt</file>
     </qresource>
 </RCC>

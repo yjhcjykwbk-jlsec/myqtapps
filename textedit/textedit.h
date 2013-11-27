@@ -64,10 +64,10 @@ QT_FORWARD_DECLARE_CLASS(QMenu)
 //#define LINECNT    33
 //#define PAGEWIDTH  585
 //1487x2105
-#define FONTSIZE 10
-#define PAGEHEIGHT (int)(297*3.1)-22
-#define A4WIDTH (int)210*3
-#define A4HEIGHT (int)(297*3.1)
+#define FONTSIZE 9
+#define PAGEHEIGHT (int)(297*3.3)-22
+#define A4WIDTH (int)(210*3.2)
+#define A4HEIGHT (int)(297*3.3)
 
 class TextEdit : public QMainWindow
 {
@@ -96,6 +96,7 @@ private:
   bool load(const QString &f);
   bool maybeSave();
   void setCurrentFileName(const QString &fileName);
+  void pageChanged(int);
 
 private slots:
   void onMouseMove(QMouseEvent*e){
@@ -107,10 +108,11 @@ private slots:
     //emit cursorPositionChanged();
   }
   void loadCanvas();
-  void pageChanged(int);
+  void pageChanged(QString);
   void nextPage();
   void prevPage();
   void hideToolBar();
+  void hideText();
   void iniFontSize();
   void dividePages();
   void fileNew();

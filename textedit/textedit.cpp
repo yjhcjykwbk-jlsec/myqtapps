@@ -34,7 +34,6 @@ const QString rsrcPath = ":/images/mac";
 const QString rsrcPath = ":/images/win";
 #endif
 
-
 //init the canvas at which page
 //pn=0 to N-1
 void TextEdit::loadCanvas(){
@@ -42,6 +41,21 @@ void TextEdit::loadCanvas(){
   cout<<"line["<<curPn<<"]:"<<lines[curPn].size();
   for(int i=0;i<lines[curPn].size();i++){
     canvas->paintLine(lines[curPn][i]);
+  }
+}
+void iniLineMargin(QTextEdit *textEdit){
+  QTextDocument* doc=textEdit->document();
+  int t=0;
+  for(QTextBlock it = doc->begin(); it != doc->end();t++,it = it.next())
+  {
+    QTextCursor textCursor=QTextCursor(it);
+    QTextBlockFormat textBlockFormat = it.blockFormat();
+    textBlockFormat.setBottomMargin(0);//set line margin
+    textBlockFormat.setTopMargin(0);
+    cout<<"#"<<t;
+    cout<<textCursor.block().text();
+    textCursor.setBlockFormat(textBlockFormat);
+//    textEdit->setTextCursor(textCursor);
   }
 }
 //jump to page s
@@ -52,7 +66,11 @@ void TextEdit::pageChanged(int s){
   curPn=s-1;
   textEdit->setDocument(docs[s-1]);
   iniFontSize();
+  iniLineMargin(textEdit);
   loadCanvas();
+}
+void TextEdit::pageChanged(QString s){
+  return pageChanged(s.toInt());
 }
 //jump to next page
 void TextEdit::nextPage(){
@@ -80,15 +98,24 @@ void TextEdit::iniFontSize(){
   QTextCursor cursor = textEdit->textCursor();
   cursor.select(QTextCursor::Document);
   cursor.mergeCharFormat(fmt);
-//  textEdit->setCurrentCharFormat(fmt);
+  hideText();
+  //  textEdit->setCurrentCharFormat(fmt);
+}
+//hide the text of the textedit
+void TextEdit::hideText(){
+  QColor col = Qt::white;
+  QTextCharFormat fmt;
+  fmt.setForeground(col);
+  QTextCursor cursor = textEdit->textCursor();
+  cursor.select(QTextCursor::Document);
+  cursor.mergeCharFormat(fmt);
+  textEdit->setCurrentCharFormat(fmt);
 }
 //divide to pages
 //note: everytime the divide result is the same
 void TextEdit::dividePages(){
   iniFontSize();
-  if(textEdit->layout()==NULL){
-    cout<<"dividepages:layout null";
-  }
+  iniLineMargin(textEdit);
   QTextDocument* doc=textEdit->document();
   cout<<doc->textWidth()<<","<<doc->pageCount()<<","<<doc->pageSize();
   QTextBlock block=doc->begin();
@@ -99,7 +126,7 @@ void TextEdit::dividePages(){
     //cout<<"block "<<block.blockNumber()<<"\tposx:"<<block.layout()->position().x()<<"\tposy:"<<block.layout()->position().y();
     //cout<<block.text();
     QTextLayout* layout=block.layout();
-    if(layout==NULL) return;
+//    if(layout==NULL) return;
     int i=0;
     //for(;i<=blockLength;i++){
     for(;i<layout->lineCount();i++){
@@ -121,15 +148,19 @@ void TextEdit::dividePages(){
       }
       // if(i==layout->lineCount()-1) str+="\n";
     }
-
     block=block.next();
     if(!block.isValid()) break;
   }
   if(str!=""||docs.size()<=0) docs.append(new QTextDocument(str));
   //init the lines , which is used by our canvas
+  lines.resize(0);
   lines.resize(docs.size());
+  comboPn->clear();
+  for(int size=1;size<=docs.size();size++)
+    comboPn->addItem(QString::number(size));
   //show the first page at first
   pageChanged(1);
+  cout<<"dividePages end";
 }
 TextEdit::TextEdit(QWidget *parent)
   : QMainWindow(parent)
@@ -145,7 +176,7 @@ TextEdit::TextEdit(QWidget *parent)
           this, SLOT(currentCharFormatChanged(QTextCharFormat)));
   connect(textEdit, SIGNAL(cursorPositionChanged()),
           this, SLOT(cursorPositionChanged()));
-//  connect(textEdit,SIGNAL(textChanged()),this,SLOT(dividePages()));
+  //connect(textEdit,SIGNAL(textChanged()),this,SLOT(dividePages()));
 
   //setCentralWidget(textEdit);
   //blank=new Blank(this);
@@ -166,7 +197,7 @@ TextEdit::TextEdit(QWidget *parent)
   //create a transparent canvas and put it on the top of textEdit
   canvas =new MyCanvas(A4WIDTH,A4HEIGHT,this);
   canvas->setFixedSize(QSize(A4WIDTH,A4HEIGHT));
-  canvas->setStyleSheet(QString::fromUtf8("border:1px solid #000000;"));
+  canvas->setStyleSheet(QString::fromUtf8("border:1px solid #eeeeee;"));
 
   //create a scrollarea contains the widgets as canvas and textedit
   QScrollArea* scrollArea = new QScrollArea;
@@ -187,7 +218,7 @@ TextEdit::TextEdit(QWidget *parent)
   //scrollArea->setLayout(hLayout);
 
   scrollArea->setAlignment(Qt::AlignCenter);
-  scrollArea->setStyleSheet(QString::fromUtf8("border:1px dotted #555;"));
+  scrollArea->setStyleSheet(QString::fromUtf8("border:1px dashed #777;"));
 
   QScrollArea* outerScrollArea = new QScrollArea;
   outerScrollArea->setFixedSize(QSize(A4WIDTH+200,A4HEIGHT+20));
@@ -195,7 +226,6 @@ TextEdit::TextEdit(QWidget *parent)
   outerScrollArea->setWidget(scrollArea);
   outerScrollArea->setAlignment(Qt::AlignCenter);
   setCentralWidget(outerScrollArea);
-
   //@invalidate codes
   //after canvas handle the mouse-drag event, emit it to the edittext for farther handling
   //connect(canvas,SIGNAL(mouseMoveSig(QMouseEvent*)),this,SLOT(onMouseMove(QMouseEvent*)));
@@ -239,13 +269,14 @@ TextEdit::TextEdit(QWidget *parent)
   connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(clipboardDataChanged()));
 #endif
 
-  QString initialFile = ":/data/test.txt";
-  const QStringList args = QCoreApplication::arguments();
-  if (args.count() == 2)
-    initialFile = args.at(1);
+//  QString initialFile = ":/data/test.txt";
+//  const QStringList args = QCoreApplication::arguments();
+//  if (args.count() == 2)
+//    initialFile = args.at(1);
 
-  if (!load(initialFile))
-    fileNew();
+//  if (!load(initialFile))
+//    fileNew();
+//  dividePages();
 }
 
 void TextEdit::closeEvent(QCloseEvent *e)
@@ -488,17 +519,15 @@ void TextEdit::setupTextActions()
   //    connect(comboStyle, SIGNAL(activated(int)),
   //            this, SLOT(textStyle(int)));
 
-  //    comboPn = new QComboBox(tb);
-  //    comboPn->setObjectName("comboPn");
-  //    tb->addWidget(comboPn);
-  //    comboPn->setEditable(true);
+      comboPn = new QComboBox(tb);
+      comboPn->setObjectName("comboPn");
+      tb->addWidget(comboPn);
+      comboPn->setEditable(true);
 
-  //    QFontDatabase db;
-  //    for(int size=1;size<=docs.size();size++)
-  //        comboPn->addItem(QString::number(size));
+//      QFontDatabase db;
 
-  //    connect(comboPn, SIGNAL(activated(QString)),
-  //            this, SLOT(pageChanged(QString)));
+      connect(comboPn, SIGNAL(activated(QString)),
+              this, SLOT(pageChanged(QString)));
 }
 
 bool TextEdit::load(const QString &f)
@@ -529,6 +558,7 @@ bool TextEdit::load(const QString &f)
   textEdit->autoFormatting();
   textEdit->setVisible(true);
   textEdit->activateWindow();
+  dividePages();
   return true;
 }
 
@@ -796,55 +826,85 @@ void printPoint(QPointF p){
   cout<<p.x()<<","<<p.y();
 }
 
+//get the line from block[textStart] to block[textEnd]
+QLine getLine(QTextBlock *block, int textStart,int textEnd){
+  int blockStart=block->position();
+  QTextLayout* layout=block->layout();
+  QPoint blockOffset=layout->position().toPoint();
+  QTextLine layoutLine=layout->lineForTextPosition(textStart-blockStart);
+  int lineHeight=layoutLine.naturalTextRect().height();
+  QPoint lineOffset=layoutLine.position().toPoint();
+  int lineTextStart=blockStart+layoutLine.textStart();
+  int lineTextEnd=lineTextStart+layoutLine.textLength();
+  int lineWidth=layoutLine.naturalTextWidth();
+  int x0=blockOffset.x()+lineOffset.x()+((float)(textStart-lineTextStart)/(lineTextEnd-lineTextStart)*lineWidth);
+  int y0=blockOffset.y()+lineOffset.y()+lineHeight;
+  int x1=blockOffset.x()+lineOffset.x()+((float)(textEnd-lineTextStart)/(lineTextEnd-lineTextStart)*lineWidth);
+  QPoint linePoint(x0,y0);
+  QPoint lineEndPoint=QPoint(x1,y0);
+  return QLine(linePoint,lineEndPoint);
+}
+
+//for debug only
+void printLines(QTextBlock *block){
+  cout<<"#printlines";
+  cout<<block->text();
+  QTextLayout* layout=block->layout();
+  for(int i=0;i<layout->lineCount();i++){
+    QTextLine layoutLine=layout->lineAt(i);
+    int s=layoutLine.textStart(),t=s+layoutLine.textLength();
+    cout<<layoutLine.lineNumber()<<":"<<s<<","<<t;
+    cout<<block->text().mid(s,t-s);
+  }
+}
 void TextEdit::cursorPositionChanged()
 {
   //alignmentChanged(textEdit->alignment());
+
   cout<<"#TextEdit::cursorPositionChanged:";
-  QColor col = Qt::red;
+
+  QColor col = Qt::gray;
   QTextCharFormat fmt;
   fmt.setForeground(col);
   QTextCursor cursor = textEdit->textCursor();
+  cursor.mergeCharFormat(fmt);
+  colorChanged(col);
 
   int selectionStart=cursor.selectionStart(),
       selectionEnd=cursor.selectionEnd();
   cout<<"selection start and end:"<<selectionStart<<","<<selectionEnd;
-  cursor.mergeCharFormat(fmt);
-  colorChanged(col);
-
-  if(!cursor.hasSelection()) return;
-  QTextBlock block=cursor.block();
-  int blockStart=block.position();
-  QTextLayout* layout=cursor.block().layout();
-
-  QTextLine layoutLine=layout->lineForTextPosition(selectionStart-blockStart);
-  int lineNumber= layoutLine.lineNumber();
-  QPoint blockOffset=layout->position().toPoint();
-  QPoint lineOffset=layoutLine.position().toPoint();
-  //cout<<"layout line:";
-  //cout<<"cursortox:"<<layoutLine.cursorToX(0);
-  //cout<<"x:"<<layoutLine.x();//x=0
-  //printPoint(blockOffset);
-  //printPoint(lineOffset);
-
-  int lineStart=blockStart+layoutLine.textStart();
-  int lineEnd=lineStart+layoutLine.textLength();
-  int lineWidth=layoutLine.naturalTextRect().width();
-  int lineHeight=layoutLine.naturalTextRect().height();
-  cout<<"line start and end:"<<lineStart<<","<<lineEnd;
-  cout<<"line width:"<<lineWidth;
-
-  int x0=blockOffset.x()+lineOffset.x()+((float)(selectionStart-lineStart)/(lineEnd-lineStart)*lineWidth);
-  int x1=blockOffset.x()+lineOffset.x()+((float)(selectionEnd-lineStart)/(lineEnd-lineStart)*lineWidth);
-
-  QPoint linePoint(x0,blockOffset.y()+lineOffset.y()+lineHeight);
-  QPoint lineEndPoint=QPoint(x1,linePoint.y());
 
   //pages not divided yet
   if(lines.size()<1) return;
+  //if(!cursor.hasSelection()) return;
 
-  //draw the highlight line on the canvas
-  lines[curPn].push_back(QLine(linePoint,lineEndPoint));
-  canvas->paintLine(linePoint,lineEndPoint);
+  int textStart=selectionStart,textEnd=selectionEnd;
+  QTextDocument* doc=textEdit->document();
+  QTextBlock block=cursor.block();
+  int a=textStart-1,b=a;
+  while(b<textEnd){
+    printLines(&block);
+    int blockStart=block.position();
+    int blockEnd=blockStart+block.length();
+    if(textStart>textEnd) return;
+    QTextLayout* layout=block.layout();
+    while(b<textEnd&&b<blockEnd-1){
+      a=b+1;
+      QTextLine layoutLine=layout->lineForTextPosition(a-blockStart);
+      //if(!layoutLine.isValid()) continue;
+      int lineTextStart=blockStart+layoutLine.textStart();
+      int lineTextEnd=lineTextStart+layoutLine.textLength();
+      b=MIN(textEnd,lineTextEnd);
+      //draw the highlight line on the canvas
+      QLine line=getLine(&block,a,b);
+      canvas->paintLine(line);
+      lines[curPn].push_back(line);
+    }
+    if(textEnd>b){
+      block=block.next();
+      b=block.position();
+    }
+  }
 }
 void TextEdit::clipboardDataChanged()
 {

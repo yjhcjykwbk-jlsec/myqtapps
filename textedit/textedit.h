@@ -64,10 +64,10 @@ QT_FORWARD_DECLARE_CLASS(QMenu)
 //#define LINECNT    33
 //#define PAGEWIDTH  585
 //1487x2105
-#define FONTSIZE 7
-#define PAGEHEIGHT 297*4
-#define A4WIDTH 210*4
-#define A4HEIGHT 297*4
+#define FONTSIZE 10
+#define PAGEHEIGHT (int)(297*3.1)-22
+#define A4WIDTH (int)210*3
+#define A4HEIGHT (int)(297*3.1)
 
 class TextEdit : public QMainWindow
 {
@@ -75,17 +75,12 @@ class TextEdit : public QMainWindow
 
 public:
   TextEdit(QWidget *parent = 0);
-
 protected:
   virtual void closeEvent(QCloseEvent *e);
   void mouseMoveEvent(QMouseEvent *e){
     qDebug()<<"TextEdit.mouseMoveEvent";
     emit mouseMoveSig(e);
   }
-  // void mouseMoveEvent(QMouseEvent* e){
-  // qDebug()<<"TextEdit.mouseMoveEvent";
-  // textBold();
-  // }
   void mouseReleaseEvent(QMouseEvent*e){
     qDebug()<<"TextEdit.mouseReleaseEvent";
     textBold();
@@ -95,7 +90,6 @@ signals:
   void mousePressSig(QMouseEvent *e);
   void mouseReleaseSig(QMouseEvent *e);
 private:
-
   void setupFileActions();
   void setupEditActions();
   void setupTextActions();
@@ -107,12 +101,16 @@ private slots:
   void onMouseMove(QMouseEvent*e){
     qDebug()<<"TextEdit.onMouseMove";
     QString s=textEdit->anchorAt(e->pos());
+    cout<<e->pos();
     cout<<s;
     //emit mouseMoveEvent(e);
     //emit cursorPositionChanged();
   }
   void loadCanvas();
-  void pageChanged(QString);
+  void pageChanged(int);
+  void nextPage();
+  void prevPage();
+  void hideToolBar();
   void iniFontSize();
   void dividePages();
   void fileNew();
@@ -166,11 +164,13 @@ private:
   QComboBox *comboPn;
   QComboBox *comboSize;
 
-  QToolBar *tb;
+  QToolBar *toolBar;
   QString fileName;
   QTextEdit *textEdit;
-  QVector<QTextDocument*> docs;//store the pages of this doc
+  MyCanvas *canvas;
   int curPn;//current page number (0 to N-1)
+  QVector<QTextDocument*> docs;//store the pages of this doc
+  QVector<QVector<QLine> > lines;//store the marks of this doc
   class MyLess
   {
     public:
@@ -183,10 +183,8 @@ private:
        return t1.p2().x()<t2.p2().x(); 
       }
   };
-  QVector<QVector<QLine> > lines;//store the marks of this doc
   //Blank *blank;
   //QPainter *paint;
-  MyCanvas *image;
 };
 
 #endif

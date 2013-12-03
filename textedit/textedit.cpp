@@ -103,7 +103,7 @@ void TextEdit::iniFontSize(){
 }
 //hide the text of the textedit
 void TextEdit::hideText(){
-  QColor col = Qt::white;
+  QColor col = FONTCOLOR;
   QTextCharFormat fmt;
   fmt.setForeground(col);
   QTextCursor cursor = textEdit->textCursor();

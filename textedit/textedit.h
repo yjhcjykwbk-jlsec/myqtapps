@@ -64,10 +64,11 @@ QT_FORWARD_DECLARE_CLASS(QMenu)
 //#define LINECNT    33
 //#define PAGEWIDTH  585
 //1487x2105
-#define FONTSIZE 9
-#define PAGEHEIGHT (int)(297*3.3)-22
+#define FONTSIZE 15
+#define PAGEHEIGHT (int)(297*3.3)-FONTSIZE*2
 #define A4WIDTH (int)(210*3.2)
 #define A4HEIGHT (int)(297*3.3)
+#define FONTCOLOR Qt::red
 
 class TextEdit : public QMainWindow
 {

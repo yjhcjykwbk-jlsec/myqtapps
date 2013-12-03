@@ -65,9 +65,9 @@ QT_FORWARD_DECLARE_CLASS(QMenu)
 //#define PAGEWIDTH  585
 //1487x2105
 #define FONTSIZE 15
-#define PAGEHEIGHT (int)(297*3.3)-FONTSIZE*2
-#define A4WIDTH (int)(210*3.2)
-#define A4HEIGHT (int)(297*3.3)
+#define PAGEHEIGHT (int)(297*3)-FONTSIZE*2
+#define A4WIDTH (int)(210*3)
+#define A4HEIGHT (int)(297*3)
 #define FONTCOLOR Qt::red
 
 class TextEdit : public QMainWindow
@@ -170,6 +170,7 @@ private:
   QToolBar *toolBar;
   QString fileName;
   QTextEdit *textEdit;
+  QTextEdit *rEdit;
   MyCanvas *canvas;
   int curPn;//current page number (0 to N-1)
   QVector<QTextDocument*> docs;//store the pages of this doc

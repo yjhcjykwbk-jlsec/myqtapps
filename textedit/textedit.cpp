@@ -220,11 +220,21 @@ TextEdit::TextEdit(QWidget *parent)
   scrollArea->setAlignment(Qt::AlignCenter);
   scrollArea->setStyleSheet(QString::fromUtf8("border:1px dashed #777;"));
 
+  rEdit=new QTextEdit;
+  rEdit->setFixedSize(QSize(A4WIDTH,A4HEIGHT));
+  rEdit->setStyleSheet(QString::fromUtf8("border:1px dashed #777;"));
+
+  QHBoxLayout *bLayout=new QHBoxLayout;
+  bLayout->addWidget(scrollArea);
+  bLayout->addWidget(rEdit);
+
   QScrollArea* outerScrollArea = new QScrollArea;
-  outerScrollArea->setFixedSize(QSize(A4WIDTH+200,A4HEIGHT+20));
+  outerScrollArea->setFixedSize(QSize(2*A4WIDTH+200,A4HEIGHT+20));
   outerScrollArea->setBackgroundRole(QPalette::Light);
-  outerScrollArea->setWidget(scrollArea);
+  //outerScrollArea->setWidget(scrollArea);
   outerScrollArea->setAlignment(Qt::AlignCenter);
+  outerScrollArea->setLayout(bLayout);
+
   setCentralWidget(outerScrollArea);
   //@invalidate codes
   //after canvas handle the mouse-drag event, emit it to the edittext for farther handling

@@ -58,7 +58,6 @@
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <value key="QtVersionId" type="int">0</value>
    <value key="ToolChain" type="int">2</value>
-   <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">2</value>
   </valuemap>
  </data>
@@ -68,7 +67,6 @@
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <value key="QtVersionId" type="int">0</value>
    <value key="ToolChain" type="int">2</value>
-   <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">0</value>
   </valuemap>
  </data>
@@ -90,7 +88,7 @@
     <value type="QString">HOMELOC=CN_SZX</value>
     <value type="QString">HOMEPATH=\Users\I303035</value>
     <value type="QString">LOCALAPPDATA=C:\Users\I303035\AppData\Local</value>
-    <value type="QString">LOGONSERVER=\\SAPSIN00</value>
+    <value type="QString">LOGONSERVER=\\SAPSIN01</value>
     <value type="QString">MONGODB=c:/mongodb/bin</value>
     <value type="QString">NODE_ENV=C:\Program Files\nodejs\node.exe</value>
     <value type="QString">NUMBER_OF_PROCESSORS=4</value>
@@ -127,14 +125,17 @@
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">C:/cygwin/home/I303035/qt-apps/textedit/textedit.pro</value>
-    <value type="QString">-spec</value>
-    <value type="QString">win32-g++</value>
     <value type="QString">-r</value>
+    <value type="QString">-spec</value>
+    <value type="QString">c:/Qt/2010.02.1/qt/mkspecs/win32-g++</value>
    </valuelist>
    <value key="abstractProcess.command" type="QString">c:/qt/2010.02.1/qt/bin/qmake.exe</value>
    <value key="abstractProcess.enabled" type="bool">false</value>
    <value key="abstractProcess.workingDirectory" type="QString">C:/cygwin/home/I303035/qt-apps/textedit</value>
-   <valuelist key="qmakeArgs" type="QVariantList"/>
+   <valuelist key="qmakeArgs" type="QVariantList">
+    <value type="QString">-spec</value>
+    <value type="QString">c:/Qt/2010.02.1/qt/mkspecs/win32-g++</value>
+   </valuelist>
   </valuemap>
  </data>
  <data>
@@ -155,7 +156,7 @@
     <value type="QString">HOMELOC=CN_SZX</value>
     <value type="QString">HOMEPATH=\Users\I303035</value>
     <value type="QString">LOCALAPPDATA=C:\Users\I303035\AppData\Local</value>
-    <value type="QString">LOGONSERVER=\\SAPSIN00</value>
+    <value type="QString">LOGONSERVER=\\SAPSIN01</value>
     <value type="QString">MONGODB=c:/mongodb/bin</value>
     <value type="QString">NODE_ENV=C:\Program Files\nodejs\node.exe</value>
     <value type="QString">NUMBER_OF_PROCESSORS=4</value>
@@ -217,7 +218,7 @@
     <value type="QString">HOMELOC=CN_SZX</value>
     <value type="QString">HOMEPATH=\Users\I303035</value>
     <value type="QString">LOCALAPPDATA=C:\Users\I303035\AppData\Local</value>
-    <value type="QString">LOGONSERVER=\\SAPSIN00</value>
+    <value type="QString">LOGONSERVER=\\SAPSIN01</value>
     <value type="QString">MONGODB=c:/mongodb/bin</value>
     <value type="QString">NODE_ENV=C:\Program Files\nodejs\node.exe</value>
     <value type="QString">NUMBER_OF_PROCESSORS=4</value>
@@ -236,6 +237,7 @@
     <value type="QString">PSMODULEPATH=C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\;C:\Program Files\Microsoft Application Virtualization\Client\</value>
     <value type="QString">PUBLIC=C:\Users\Public</value>
     <value type="QString">QTDIR=C:/Qt/2010.02.1/qt</value>
+    <value type="QString">SESSIONNAME=Console</value>
     <value type="QString">SNC_LIB=c:\Program Files (x86)\SECUDE\OfficeSecurity\secude.dll</value>
     <value type="QString">SYSTEMDRIVE=C:</value>
     <value type="QString">SYSTEMROOT=C:\WINDOWS</value>
@@ -250,8 +252,6 @@
     <value type="QString">WINDIR=C:\WINDOWS</value>
     <value type="QString">WINDOWS_TRACING_FLAGS=3</value>
     <value type="QString">WINDOWS_TRACING_LOGFILE=C:\BVTBin\Tests\installpackage\csilogfile.log</value>
-    <value type="QString">__APPCOMPAT_MANIFEST=</value>
-    <value type="QString">__COMPAT_LAYER=VistaSetup</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
@@ -273,7 +273,7 @@
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <valuelist key="qmakeArgs" type="QVariantList">
     <value type="QString">-spec</value>
-    <value type="QString">/usr/share/qt4/mkspecs/linux-g++-64</value>
+    <value type="QString">c:/Qt/2010.02.1/qt/mkspecs/win32-g++</value>
    </valuelist>
   </valuemap>
  </data>
@@ -287,10 +287,6 @@
   <variable>buildconfiguration-Release-cleanstep0</variable>
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
-   <value key="cleanConfig" type="bool">true</value>
-   <valuelist key="makeargs" type="QVariantList">
-    <value type="QString">clean</value>
-   </valuelist>
   </valuemap>
  </data>
  <data>

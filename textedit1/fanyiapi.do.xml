@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html><head><style id="xml-viewer-style">/*
+ * Copyright (C) 2011 Google Inc. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above
+ * copyright notice, this list of conditions and the following disclaimer
+ * in the documentation and/or other materials provided with the
+ * distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY GOOGLE INC. AND ITS CONTRIBUTORS
+ * âAS ISâ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GOOGLE INC.
+ * OR ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+div.header {
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+    margin: 10px;
+}
+
+div.collapsible > div.hidden {
+    display:none;
+}
+
+.pretty-print {
+    margin-top: 1em;
+    margin-left: 20px;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+#webkit-xml-viewer-source-xml {
+    display: none;
+}
+
+.collapsible-content {
+    margin-left: 1em;
+}
+.comment {
+    white-space: pre;
+}
+
+.button {
+    -webkit-user-select: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: -10px;
+    width: 10px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    vertical-align: bottom;
+}
+
+.collapse-button {
+    background-image: -webkit-canvas(arrowDown);
+    height: 10px;
+}
+
+.expand-button {
+    background-image: -webkit-canvas(arrowRight);
+    height: 11px;
+}
+</style></head><body youdao="bind"><div id="webkit-xml-viewer-source-xml"><youdao-fanyi>
+    <errorcode>0</errorcode>
+    <query><![CDATA[first]]></query>
+    <!-- 有道翻译 -->
+    <translation>
+            <paragraph><![CDATA[第一个]]></paragraph>
+        </translation>
+    <!-- 有道词典-基本词典 -->
+    <basic>
+            <!-- 音标 -->
+        <phonetic><![CDATA[fɜːst]]></phonetic>
+            <!-- 基本释义 -->
+        <explains>
+                    <ex><![CDATA[num. 第一]]></ex>
+                    <ex><![CDATA[n. 第一；开始；冠军]]></ex>
+                    <ex><![CDATA[adj. 第一的；基本的；最早的]]></ex>
+                    <ex><![CDATA[adv. 第一；首先；优先；宁愿]]></ex>
+                    <ex><![CDATA[n. (First)人名；(英)弗斯特；(捷)菲尔斯特]]></ex>
+                </explains>
+    </basic>
+    <!-- 有道词典-网络释义 -->
+    <web>
+            <explain>
+            <key><![CDATA[first]]></key>
+            <value>
+                            <ex><![CDATA[第一]]></ex>
+                            <ex><![CDATA[首先]]></ex>
+                            <ex><![CDATA[第一次]]></ex>
+                        </value>
+        </explain>
+            <explain>
+            <key><![CDATA[first class]]></key>
+            <value>
+                            <ex><![CDATA[头等舱]]></ex>
+                            <ex><![CDATA[一等地]]></ex>
+                            <ex><![CDATA[头等]]></ex>
+                        </value>
+        </explain>
+            <explain>
+            <key><![CDATA[First Half]]></key>
+            <value>
+                            <ex><![CDATA[上半场]]></ex>
+                            <ex><![CDATA[上半时]]></ex>
+                            <ex><![CDATA[上半]]></ex>
+                        </value>
+        </explain>
+        </web>
+</youdao-fanyi></div><div class="header"><span>This XML file does not appear to have any style information associated with it. The document tree is shown below.</span><br /></div><div class="pretty-print" id="tree"><div class="collapsible" id="collapsible0"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;youdao-fanyi&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="line"><span class="webkit-html-tag">&lt;errorCode&gt;</span><span class="text">0</span><span class="webkit-html-tag">&lt;/errorCode&gt;</span></div><span class="text" /><div class="collapsible" id="collapsible1"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;query&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ first ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/query&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;query&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/query&gt;</span></div></div></div><span class="text" /><div class="line"><span class="comment webkit-html-comment">&lt;!--  有道翻译  --&gt;</span></div><span class="text" /><div class="collapsible" id="collapsible2"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;translation&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="collapsible" id="collapsible3"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;paragraph&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ 第一个 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/paragraph&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;paragraph&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/paragraph&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/translation&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;translation&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/translation&gt;</span></div></div></div><span class="text" /><div class="line"><span class="comment webkit-html-comment">&lt;!--  有道词典-基本词典  --&gt;</span></div><span class="text" /><div class="collapsible" id="collapsible4"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;basic&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="line"><span class="comment webkit-html-comment">&lt;!--  音标  --&gt;</span></div><span class="text" /><div class="collapsible" id="collapsible5"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;phonetic&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ fɜːst ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/phonetic&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;phonetic&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/phonetic&gt;</span></div></div></div><span class="text" /><div class="line"><span class="comment webkit-html-comment">&lt;!--  基本释义  --&gt;</span></div><span class="text" /><div class="collapsible" id="collapsible6"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;explains&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="collapsible" id="collapsible7"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ num. 第一 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible8"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ n. 第一；开始；冠军 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible9"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ adj. 第一的；基本的；最早的 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible10"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ adv. 第一；首先；优先；宁愿 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible11"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ n. (First)人名；(英)弗斯特；(捷)菲尔斯特 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/explains&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;explains&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/explains&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/basic&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;basic&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/basic&gt;</span></div></div></div><span class="text" /><div class="line"><span class="comment webkit-html-comment">&lt;!--  有道词典-网络释义  --&gt;</span></div><span class="text" /><div class="collapsible" id="collapsible12"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;web&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="collapsible" id="collapsible13"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;explain&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="collapsible" id="collapsible14"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;key&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ first ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/key&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;key&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/key&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible15"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;value&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="collapsible" id="collapsible16"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ 第一 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible17"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ 首先 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible18"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ 第一次 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/value&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;value&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/value&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/explain&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;explain&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/explain&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible19"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;explain&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="collapsible" id="collapsible20"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;key&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ first class ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/key&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;key&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/key&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible21"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;value&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="collapsible" id="collapsible22"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ 头等舱 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible23"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ 一等地 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible24"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ 头等 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/value&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;value&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/value&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/explain&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;explain&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/explain&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible25"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;explain&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="collapsible" id="collapsible26"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;key&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ First Half ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/key&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;key&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/key&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible27"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;value&gt;</span></div><div class="collapsible-content"><span class="text" /><div class="collapsible" id="collapsible28"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ 上半场 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible29"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ 上半时 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /><div class="collapsible" id="collapsible30"><div class="expanded"><div class="line"><span class="button collapse-button" /><span class="webkit-html-tag">&lt;ex&gt;</span></div><div class="collapsible-content"><div class="line"><span class="text">&lt;![CDATA[ 上半 ]]&gt;</span></div></div><div class="line"><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;ex&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/ex&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/value&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;value&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/value&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/explain&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;explain&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/explain&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/web&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;web&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/web&gt;</span></div></div></div><span class="text" /></div><div class="line"><span class="webkit-html-tag">&lt;/youdao-fanyi&gt;</span></div></div><div class="collapsed hidden"><div class="line"><span class="button expand-button" /><span class="webkit-html-tag">&lt;youdao-fanyi&gt;</span><span class="text">...</span><span class="webkit-html-tag">&lt;/youdao-fanyi&gt;</span></div></div></div></div></body></html>

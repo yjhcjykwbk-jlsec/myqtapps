@@ -1,4 +1,4 @@
-//ÎÒµÄ×Ô¶¨Òå»­²¼¿Ø¼þ
+//ï¿½Òµï¿½ï¿½Ô¶ï¿½ï¿½å»­ï¿½ï¿½ï¿½Ø¼ï¿½
 #include "mycanvas.h"
 #include <QPainter>
 MyCanvas::MyCanvas(int width,int height,QWidget *parent)
@@ -6,11 +6,11 @@ MyCanvas::MyCanvas(int width,int height,QWidget *parent)
 {
   //set a canvas with width and height
   //attention:Format_argb32 is transparent mode
-  image = QImage(width,height,QImage::Format_ARGB32);  //»­²¼µÄ³õÊ¼»¯´óÐ¡ÉèÎª400*300£¬Ê¹ÓÃ32Î»ÑÕÉ«
+  image = QImage(width,height,QImage::Format_ARGB32);  //ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Îª400*300ï¿½ï¿½Ê¹ï¿½ï¿½32Î»ï¿½ï¿½É«
   //this->setStyleSheet(QString::fromUtf8("border:1px solid #000000;"));etStyleSheet("border:1px solid black");
   this->setStyleSheet("border:1px solid black");
   this->setAutoFillBackground(true);
- // backColor = qRgb(20,20,20);    //»­²¼³õÊ¼»¯±³¾°É«Ê¹ÓÃ°×É«
+ // backColor = qRgb(20,20,20);    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«Ê¹ï¿½Ã°ï¿½É«
  // image.fill(backColor);
   //connect(this,SIGNAL(mouseMoveSig(QMouseEvent*)),this,SLOT(slot1(QMouseEvent*)));
   //connect(this,SIGNAL(mousePressSig(QMouseEvent*)),this,SLOT(slot2(QMouseEvent*)));
@@ -23,25 +23,25 @@ void MyCanvas::paintEvent(QPaintEvent* e){
 }
 void MyCanvas::mousePressEvent(QMouseEvent *event)
 {
-  if(event->button() == Qt::LeftButton)  //µ±Êó±ê×ó¼ü°´ÏÂ
+  if(event->button() == Qt::LeftButton)  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   {
-    lastPoint = event->pos();   //»ñµÃÊó±êÖ¸ÕëµÄµ±Ç°×ø±ê×÷ÎªÆðÊ¼×ø±ê
+    lastPoint = event->pos();   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Äµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
     emit mousePressSig(event);
   }
 }
 void MyCanvas::mouseMoveEvent(QMouseEvent *event)
 {
-  if(event->buttons()&Qt::LeftButton)   //Èç¹ûÊó±ê×ó¼ü°´×ÅµÄÍ¬Ê±ÒÆ¶¯Êó±ê
+  if(event->buttons()&Qt::LeftButton)   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åµï¿½Í¬Ê±ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
   {
-    endPoint = event->pos();  //»ñµÃÊó±êÖ¸ÕëµÄµ±Ç°×ø±ê×÷ÎªÖÕÖ¹×ø±ê
+    endPoint = event->pos();  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Äµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
     qDebug()<<"MyCanvas.mouseMoveEvent";
-    paint(image);   //»æÖÆÍ¼ÐÎ
+    paint(image);   //ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
     emit mouseMoveSig(event);
   }
 }
 void MyCanvas::mouseReleaseEvent(QMouseEvent *event)
 {
-  if(event->button() == Qt::LeftButton)   //Èç¹ûÊó±ê×ó¼üÊÍ·Å
+  if(event->button() == Qt::LeftButton)   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½
   {
     endPoint = event->pos();
     paint(image);
@@ -49,11 +49,11 @@ void MyCanvas::mouseReleaseEvent(QMouseEvent *event)
   }
 }
 void MyCanvas::paintLine(QPoint l,QPoint r){
-  QPainter pp(&image);   //ÔÚtheImageÉÏ»æÍ¼
-  pp.setPen(QPen(Qt::yellow,3,Qt::SolidLine)); //ÉèÖÃ»­±ÊÐÎÊ½
+  QPainter pp(&image);   //ï¿½ï¿½theImageï¿½Ï»ï¿½Í¼
+  pp.setPen(QPen(Qt::yellow,8,Qt::SolidLine)); //ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
   qDebug()<<"MyCanvas.paintLine:"<<l.x()<<","<<l.y()<<" - "<<r.x()<<","<<r.y();
-  pp.drawLine(l,r);   //ÓÉÆðÊ¼×ø±êºÍÖÕÖ¹×ø±ê»æÖÆÖ±Ïß
-  update();   //½øÐÐ¸üÐÂ½çÃæÏÔÊ¾£¬¿ÉÒýÆð´°¿ÚÖØ»æÊÂ¼þ£¬ÖØ»æ´°¿Ú
+  pp.drawLine(l,r);   //ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½
+  update();   //ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ð´°¿ï¿½ï¿½Ø»ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ø»æ´°ï¿½ï¿½
 }
 void MyCanvas::paintLine(QLine &line){
   QPoint l=line.p1(),r=line.p2();
@@ -62,9 +62,9 @@ void MyCanvas::paintLine(QLine &line){
 void MyCanvas::paint(QImage &theImage)
 {
   paintLine(lastPoint,endPoint);
-//  QPainter pp(&theImage);   //ÔÚtheImageÉÏ»æÍ¼
-//  pp.setPen(QPen(Qt::yellow,8,Qt::SolidLine)); //ÉèÖÃ»­±ÊÐÎÊ½
-//  pp.drawLine(lastPoint,endPoint);   //ÓÉÆðÊ¼×ø±êºÍÖÕÖ¹×ø±ê»æÖÆÖ±Ïß
-//  lastPoint = endPoint;  //ÈÃÖÕÖ¹×ø±ê±äÎªÆðÊ¼×ø±ê
-//  update();   //½øÐÐ¸üÐÂ½çÃæÏÔÊ¾£¬¿ÉÒýÆð´°¿ÚÖØ»æÊÂ¼þ£¬ÖØ»æ´°¿Ú
+//  QPainter pp(&theImage);   //ï¿½ï¿½theImageï¿½Ï»ï¿½Í¼
+//  pp.setPen(QPen(Qt::yellow,8,Qt::SolidLine)); //ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
+//  pp.drawLine(lastPoint,endPoint);   //ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½
+//  lastPoint = endPoint;  //ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+//  update();   //ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ð´°¿ï¿½ï¿½Ø»ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ø»æ´°ï¿½ï¿½
 }

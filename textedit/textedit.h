@@ -49,6 +49,7 @@
 #include <QQueue>
 #include <QTextDocument>
 #include <QTextEdit>
+#include <QPushButton>
 #include "blank.h"
 #include "mycanvas.h"
 QT_FORWARD_DECLARE_CLASS(QPainter)
@@ -170,6 +171,7 @@ private:
   QToolBar *toolBar;
   QString fileName;
   QTextEdit *textEdit;
+  QPushButton *pnUp,*pnDown;
   QTextEdit *rEdit;
   MyCanvas *canvas;
   int curPn;//current page number (0 to N-1)

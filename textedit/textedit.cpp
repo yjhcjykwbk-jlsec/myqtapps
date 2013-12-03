@@ -23,6 +23,8 @@
 #include <QTextList>
 #include <QtDebug>
 #include <QCloseEvent>
+#include <QButtonGroup>
+#include <QPushButton>
 #include <QMessageBox>
 #include <QPrintPreviewDialog>
 #include <QScrollArea>
@@ -189,7 +191,7 @@ TextEdit::TextEdit(QWidget *parent)
   //  textEdit->setBackgroundRole(QPalette::Light);
   //  TextEdit.setStyleSheet("<");
   //  textEdit->setWindowOpacity(0.3);
-  //  textEdit->hide();
+  //  textEdit->hide()  ;
   QPalette pl = textEdit->palette();
   pl.setBrush(QPalette::Base,QBrush(QColor(255,0,0,0)));
   textEdit->setPalette(pl);
@@ -216,20 +218,38 @@ TextEdit::TextEdit(QWidget *parent)
   //hLayout->addWidget(textEdit);
   //hLayout->addWidget(canvas);
   //scrollArea->setLayout(hLayout);
-
   scrollArea->setAlignment(Qt::AlignCenter);
   scrollArea->setStyleSheet(QString::fromUtf8("border:1px dashed #777;"));
 
+  pnUp=new QPushButton;
+  pnDown=new QPushButton;
+  //pnUp->setFixedSize(500,15);
+  //pnDown->setFixedSize(500,15);
+//  pnUp->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+//  pnDown->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+  QVBoxLayout *vLayout=new QVBoxLayout;
+  vLayout->addWidget(pnUp);
+  vLayout->addWidget(scrollArea);
+  vLayout->addWidget(pnDown);
+  vLayout->setAlignment(Qt::AlignCenter);
+  QScrollArea* leftArea = new QScrollArea;
+  leftArea->setFixedSize(QSize(A4WIDTH+40,A4HEIGHT+80));
+  leftArea->setBackgroundRole(QPalette::Light);
+  leftArea->setLayout(vLayout);
+
   rEdit=new QTextEdit;
-  rEdit->setFixedSize(QSize(A4WIDTH,A4HEIGHT));
+  rEdit->setFixedSize(QSize(A4WIDTH+40,A4HEIGHT+80));
   rEdit->setStyleSheet(QString::fromUtf8("border:1px dashed #777;"));
 
   QHBoxLayout *bLayout=new QHBoxLayout;
-  bLayout->addWidget(scrollArea);
+  bLayout->addWidget(leftArea);
   bLayout->addWidget(rEdit);
 
   QScrollArea* outerScrollArea = new QScrollArea;
-  outerScrollArea->setFixedSize(QSize(2*A4WIDTH+200,A4HEIGHT+20));
+  //outerScrollArea->setFixedSize(QSize(2*A4WIDTH+200,A4HEIGHT+80));
+  outerScrollArea->setMinimumWidth(2*A4WIDTH+200);
+  outerScrollArea->setMinimumHeight(A4HEIGHT+100);
+  outerScrollArea->setSizePolicy(QSizePolicy::Maximum,QSizePolicy::Maximum);
   outerScrollArea->setBackgroundRole(QPalette::Light);
   //outerScrollArea->setWidget(scrollArea);
   outerScrollArea->setAlignment(Qt::AlignCenter);

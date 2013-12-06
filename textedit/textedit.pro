@@ -1,3 +1,7 @@
+QT += core \
+      gui \
+      network \
+      xml
 TEMPLATE        = app
 TARGET          = textedit
 

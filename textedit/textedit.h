@@ -43,6 +43,7 @@
 #define TEXTEDIT_H
 
 #include <QMainWindow>
+#include <QScrollArea>
 #include <QMap>
 #include <QPointer>
 #include <QPainter>
@@ -50,6 +51,9 @@
 #include <QTextDocument>
 #include <QTextEdit>
 #include <QPushButton>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
 #include "blank.h"
 #include "mycanvas.h"
 QT_FORWARD_DECLARE_CLASS(QPainter)
@@ -66,9 +70,9 @@ QT_FORWARD_DECLARE_CLASS(QMenu)
 //#define PAGEWIDTH  585
 //1487x2105
 #define FONTSIZE 15
-#define PAGEHEIGHT (int)(297*3)-FONTSIZE*2
-#define A4WIDTH (int)(210*3)
-#define A4HEIGHT (int)(297*3)
+#define PAGEHEIGHT (int)(297*2)-FONTSIZE*2
+#define A4WIDTH (int)(210*2)
+#define A4HEIGHT (int)(297*2)
 #define FONTCOLOR Qt::red
 
 class TextEdit : public QMainWindow
@@ -99,8 +103,9 @@ private:
   bool maybeSave();
   void setCurrentFileName(const QString &fileName);
   void pageChanged(int);
-
+  void paintLines(QTextBlock &block, int l,int r);
 private slots:
+  void switchRightMode();//switch tranlation and canvas mode
   void onMouseMove(QMouseEvent*e){
     qDebug()<<"TextEdit.onMouseMove";
     QString s=textEdit->anchorAt(e->pos());
@@ -113,7 +118,6 @@ private slots:
   void pageChanged(QString);
   void nextPage();
   void prevPage();
-  void hideToolBar();
   void hideText();
   void iniFontSize();
   void dividePages();
@@ -141,12 +145,17 @@ private slots:
   void about();
   void printPreview(QPrinter *);
 
+  //http
+  void replyFinished(QNetworkReply* reply);
+  void on_readyRead();
+
+
 private:
   void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
   void fontChanged(const QFont &f);
   void colorChanged(const QColor &c);
   void alignmentChanged(Qt::Alignment a);
-
+  void translate(QString word);
   QAction *actionSave,
   *actionTextBold,
   *actionTextDump,
@@ -167,16 +176,44 @@ private:
   QFontComboBox *comboFont;
   QComboBox *comboPn;
   QComboBox *comboSize;
-
+  QScrollArea* leftArea,*rightArea;
   QToolBar *toolBar;
   QString fileName;
   QTextEdit *textEdit;
   QPushButton *pnUp,*pnDown;
   QTextEdit *rEdit;
-  MyCanvas *canvas;
+  MyCanvas *canvas,*rCanvas;
   int curPn;//current page number (0 to N-1)
+
+  class DocExtInfo{
+  public:
   QVector<QTextDocument*> docs;//store the pages of this doc
-  QVector<QVector<QLine> > lines;//store the marks of this doc
+  QVector<QVector<QPair<int,int> > > marks;//store the marks of the doc
+  void iniMarks(){
+      int n=docs.size();
+      marks.resize(n);
+  }
+  void clearMarks(){
+    marks.clear();}
+  int size(){return docs.size();}
+  void append(QTextDocument *doc){
+      docs.append(doc);
+  }
+  //add mark to docs[n]
+  void addMark(int n,int l,int r){
+      marks[n].append(QPair<int,int>(l,r));
+  }
+  //clear docs and marks
+  void clear(){
+      docs.clear();
+      marks.clear();}
+  void save(QString fName){}
+  }extInfo;
+  //http
+  QNetworkRequest request;
+  QNetworkAccessManager *manager;//创建一个管理器
+  QNetworkReply *reply;//发送GET请求
+
   class MyLess
   {
     public:

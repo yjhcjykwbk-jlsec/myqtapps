@@ -13,6 +13,7 @@ class MyCanvas : public QWidget
 
 public:
   MyCanvas(int width,int height,QWidget *parent=0);
+  MyCanvas(int width,int height,int brushWidth,QWidget *parent=0);
   void paintLine(QPoint l,QPoint r);
   void paintLine(QLine&);
   void reload(){
@@ -50,6 +51,7 @@ protected:
   void paint(QImage& theImage);   //进行绘制
 private:
   QImage image;    //QImage类对象，用于在其上绘图
+  int brushWidth=8;
   QRgb backColor;  //QRgb颜色对象，存储image的背景色
   QPoint lastPoint,endPoint; //定义两个坐标对象存放鼠标指针的前后两个坐标
 };

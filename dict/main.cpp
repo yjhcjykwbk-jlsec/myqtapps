@@ -10,7 +10,11 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
     QApplication a(argc, argv);
     MainWindow w;
-    w.setFixedSize(500,500);
+    //w.setFixedSize(400,500);
+    w.setMaximumWidth(400);
+    w.setMaximumHeight(600);
+    w.setMinimumWidth(200);
+    w.setMinimumHeight(300);
     w.show();
     //tt.translate(w.manger,"hello");
     return a.exec();

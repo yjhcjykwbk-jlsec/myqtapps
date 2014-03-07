@@ -82,7 +82,7 @@ void MainWindow::on_TranslationReady(){
 //    cout<<reply;
     QDomDocument doc("test");
     QString data = reply->readAll();
-    cout<<"result:"<<data;
+    //cout<<"result:"<<data;
     doc.setContent(data);
 
 

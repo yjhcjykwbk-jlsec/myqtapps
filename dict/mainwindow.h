@@ -26,7 +26,7 @@ private:
     Ui::MainWindow *ui;
     QTextEdit *mEdit;
     QPushButton *mBtn;
-    QString word;
+    QString word="";
     QWebView *mWeb;
 public:
     QNetworkAccessManager manager;
@@ -39,6 +39,9 @@ private slots:
     void clipboardDataChanged();
     void translate(QString word);
     void recordWord();
+		void showWordPage(){
+			mWeb->setUrl(QUrl("http://dict.youdao.com/search?keyfrom=dictindex&q="+word));
+		}
 };
 
 #endif // MAINWINDOW_H

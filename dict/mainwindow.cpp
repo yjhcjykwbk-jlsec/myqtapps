@@ -87,19 +87,22 @@ void MainWindow::translate(QString word){
 
 void MainWindow::on_TranslationReady(){
     mEdit->clear();
-//    cout<<reply;
     QDomDocument doc("test");
     QString data = reply->readAll();
-    //cout<<"result:"<<data;
+		// cout<<"result:"<<data;
     doc.setContent(data);
-
 
     //显示查询的单词
      QDomNodeList list = doc.elementsByTagName("query");
-     mEdit->append( list.at(0).toElement().text());
+     mEdit->append(list.at(0).toElement().text());
     //进入基本释义节点
     list = doc.elementsByTagName("basic");
     QDomElement n = list.at(0).toElement();
+		//音标
+		list=n.elementsByTagName("phonetic");
+		if(list.length()>0){
+     mEdit->append(list.at(0).toElement().text());
+		}
     //解释
     list = n.elementsByTagName("ex");
     for ( int i = 0; i < list.count(); i++ ) {

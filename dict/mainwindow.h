@@ -29,6 +29,7 @@ private:
     QString word;
     QWebView *mWeb;
 public:
+		void loginYoudao();
     QNetworkAccessManager manager;
     QNetworkReply *reply;// for http requests
 signals:
@@ -39,6 +40,7 @@ private slots:
     void clipboardDataChanged();
     void translate(QString word);
     void recordWord();
+    void login();
 		void showWordPage(){
 			mWeb->setUrl(QUrl("http://dict.youdao.com/search?keyfrom=dictindex&q="+word));
 		}

@@ -1,0 +1,2 @@
+https://logindict.youdao.com/login/acc/login?
+app=web&tp=urstoken&cf=3&fr=1&product=DICT&type=1&um=true&username=zgxu2008@163.com&password=gzx20082008

@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-		reply=NULL;
+    reply=NULL;
 
     mEdit=new QTextEdit(this);
     QPalette pl = mEdit->palette();

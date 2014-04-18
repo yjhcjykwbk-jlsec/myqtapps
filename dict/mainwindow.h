@@ -26,7 +26,7 @@ private:
     Ui::MainWindow *ui;
     QTextEdit *mEdit;
     QPushButton *mBtn;
-    QString word="";
+    QString word;
     QWebView *mWeb;
 public:
     QNetworkAccessManager manager;

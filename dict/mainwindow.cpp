@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	//mEdit->setTextBackgroundColor(QColor(255,255,255));
 	mBtn=new QPushButton("record word");
 	QPushButton *mWebBtn=new QPushButton("open web");
-    QPushButton *mLogBtn=new QPushButton("login");
+    QPushButton *mLogBtn=new QPushButton("login page auto-fill form");
 	mWeb=new QWebView();
 	mWeb->setZoomFactor(0.9);
 	mWeb->setWindowOpacity(0.2);
@@ -39,8 +39,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	layout->addWidget(mEdit);
 	layout->setSpacing(2);
 	layout->addWidget(mWebBtn);
+    layout->addWidget(mBtn);
     layout->addWidget(mLogBtn);
-	layout->addWidget(mBtn);
+
 
 	// layout->addWidget(mBtn);
 	area->setLayout(layout);

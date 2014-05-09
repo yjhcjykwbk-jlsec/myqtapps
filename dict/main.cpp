@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
     w.setMaximumHeight(600);
     w.setMinimumWidth(200);
     w.setMinimumHeight(300);
+
     w.show();
     w.loginYoudao();
     //tt.translate(w.manger,"hello");
